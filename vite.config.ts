@@ -3,12 +3,14 @@ import { tanstackStart } from "@tanstack/react-start/plugin/vite";
 import react from "@vitejs/plugin-react";
 import tailwindcss from "@tailwindcss/vite";
 import path from "path";
+import { nitro } from "nitro/vite"; // 1. Import Nitro
 
 export default defineConfig({
   plugins: [
-    tanstackStart(), // 1. Router compilation MUST come first!
-    react(),         // 2. JSX transformation comes second
-    tailwindcss(),   // 3. CSS processing
+    tanstackStart(), // Router compilation MUST come first!
+    nitro(),         // 2. Add Nitro plugin for Vercel routing
+    react(),         // JSX transformation comes next
+    tailwindcss(),   // CSS processing
   ],
   resolve: {
     tsconfigPaths: true, // Replaces 'vite-tsconfig-paths' natively to clean up the warning
