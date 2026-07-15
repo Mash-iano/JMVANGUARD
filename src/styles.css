@@ -1,0 +1,123 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+/*
+ * Mwaura Campaign Portal 2027 — Design System
+ * Solid Deep Slate Navy backgrounds, Vibrant Amber accents,
+ * crisp white typography. No glassmorphism. Bold bordered cards.
+ */
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 2px);
+  --radius-md: var(--radius);
+  --radius-lg: calc(var(--radius) + 2px);
+  --radius-xl: calc(var(--radius) + 6px);
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  --color-navy: var(--navy);
+  --color-navy-deep: var(--navy-deep);
+  --color-amber: var(--amber);
+  --color-amber-bright: var(--amber-bright);
+  --color-silver: var(--silver);
+
+  --font-display: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+}
+
+:root {
+  --radius: 0.375rem;
+
+  /* Brand */
+  --navy-deep: oklch(0.16 0.04 260);   /* #0B132B */
+  --navy: oklch(0.20 0.045 260);       /* #0E1726 */
+  --amber: oklch(0.75 0.17 70);        /* #F59E0B */
+  --amber-bright: oklch(0.83 0.16 82); /* #FBBF24 */
+  --silver: oklch(0.72 0.01 260);      /* #9CA3AF */
+
+  /* Semantic (dark by default — this is a war room) */
+  --background: var(--navy-deep);
+  --foreground: oklch(1 0 0);
+
+  --card: oklch(0.22 0.04 260);
+  --card-foreground: oklch(1 0 0);
+
+  --popover: oklch(0.22 0.04 260);
+  --popover-foreground: oklch(1 0 0);
+
+  --primary: var(--amber);
+  --primary-foreground: oklch(0.16 0.04 260);
+
+  --secondary: oklch(0.28 0.04 260);
+  --secondary-foreground: oklch(1 0 0);
+
+  --muted: oklch(0.25 0.03 260);
+  --muted-foreground: var(--silver);
+
+  --accent: var(--amber-bright);
+  --accent-foreground: oklch(0.16 0.04 260);
+
+  --destructive: oklch(0.62 0.22 25);
+  --destructive-foreground: oklch(1 0 0);
+
+  --border: oklch(0.32 0.03 260);
+  --input: oklch(0.28 0.03 260);
+  --ring: var(--amber);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+  html {
+    font-family: var(--font-sans);
+    background-color: var(--color-background);
+  }
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+    -webkit-font-smoothing: antialiased;
+  }
+  h1, h2, h3, h4, h5 {
+    font-family: var(--font-display);
+    letter-spacing: -0.01em;
+  }
+}
+
+@utility container-page {
+  margin-inline: auto;
+  width: 100%;
+  max-width: 1200px;
+  padding-inline: 1.25rem;
+}
+
+@utility solid-card {
+  background-color: var(--color-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+}
+
+@utility amber-bar {
+  background-color: var(--color-amber);
+  color: var(--primary-foreground);
+}
